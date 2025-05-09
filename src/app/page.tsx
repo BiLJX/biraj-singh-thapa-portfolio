@@ -1,6 +1,7 @@
 import CarouselSection from "@/sections/Home/Carousel.section";
 import FeaturedVideoSection from "@/sections/Home/FeaturedVideo.section";
 import HomeHero from "@/sections/Home/Hero.section";
+import PublicationSection from "@/sections/Home/Publications.section";
 
 export default function HomePage(){
     return(
@@ -8,6 +9,7 @@ export default function HomePage(){
             <HomeHero />
             <CarouselSection />
             <FeaturedVideoSection />
+            <PublicationSection />
         </>
     )
 }

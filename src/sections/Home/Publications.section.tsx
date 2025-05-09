@@ -39,7 +39,7 @@ const Contents: TContents[] = [
 export default function PublicationSection(){
     return(
         <section className="bg-black">
-            <div className = "section-container space-y-6">
+            <div className = "section-container space-y-12">
                 <h1 className="text-center font-bold text-2xl text-white">Recent Publications That You Make Like</h1>
                 <div className="flex space-x-6">
                     {

@@ -12,6 +12,7 @@ export default function HomePage(){
             <FeaturedVideoSection />
             <PublicationSection />
             <CounterSection />
+            <PublicationSection />
         </>
     )
 }

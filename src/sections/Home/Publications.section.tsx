@@ -12,26 +12,26 @@ const Contents: TContents[] = [
     {
         title: "Green Hydrogen Potentials from Surplus Hydro Energy in Nepal",
         description: "Evaluates the feasibility of utilizing excess hydroelectric power for green hydrogen production in Nepal.",
-        href: "jkjkasd",
-        image_src: "/home/carousel/Biraj.jpg"
+        href: "https://www.sciencedirect.com/science/article/abs/pii/S0360319921014452",
+        image_src: "/home/articles/1.jpg"
     },
     {
         title: "Economy of Scale for Green Hydrogen-Derived Fuel Production in Nepal",
         description: "Analyzes the cost-effectiveness of scaling up green hydrogen fuel production in Nepal.",
-        href: "jkjkasd",
+        href: "https://www.frontiersin.org/journals/chemistry/articles/10.3389/fchem.2024.1347255/full",
         image_src: "/home/carousel/Biraj.jpg"
     },
     {
         title: "Sediment Erosion in Hydro Turbines and Its Effect on the Flow Around Guide Vanes of Francis Turbine",
         description: "Investigates how sediment erosion impacts the performance of Francis turbines.",
-        href: "jkjkasd",
-        image_src: "/home/carousel/Biraj.jpg"
+        href: "https://www.sciencedirect.com/science/article/abs/pii/S1364032115004517",
+        image_src: "/home/articles/3.jpg"
     },
     {
         title: "Empirical Modelling of Sediment Erosion in Francis Turbines",
         description: "Develops empirical models to predict sediment erosion in Francis turbines.",
-        href: "jkjkasd",
-        image_src: "/home/carousel/Biraj.jpg"
+        href: "https://www.sciencedirect.com/science/article/abs/pii/S0360544212001806",
+        image_src: "/home/articles/4.jpg"
     },
 ]
 
@@ -54,7 +54,7 @@ export default function PublicationSection(){
     return(
         <section className="bg-black">
             <div className = "section-container space-y-12">
-                <h1 className="text-center font-bold text-2xl text-white">Recent Publications That You Make Like</h1>
+                <h1 className="text-center font-bold text-2xl text-white">Publications That You Make Like</h1>
                 <div className="flex space-x-6">
                     {
                         Contents.map((x, i)=><Card title={x.title} description={x.description} image_src={x.image_src} href={x.href} ref={el => {if(el) cardsRef.current[i] = el }} key = {i} />)
@@ -83,7 +83,9 @@ const Card = forwardRef<HTMLDivElement, TContents>(({description, href, image_sr
                         <p className={cn("max-h-0 transition-all duration-500 text-white opacity-0 text-sm", {"max-h-40 opacity-100": isActive})}>
                             {description}
                         </p>
-                        <Button variant="white-outlined">See Publication</Button>
+                        <a target="_blank" href={href}>
+                            <Button variant="white-outlined">See Publication</Button>
+                        </a>
                     </div>
                 </div>
             </div>

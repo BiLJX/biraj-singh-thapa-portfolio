@@ -35,19 +35,17 @@ export default function CounterSection(){
     const sectionRef = useRef<HTMLElement>(null)
     useGSAP(()=>{
         gsap.registerPlugin(ScrollTrigger);
-        const tl = gsap.timeline({
-             scrollTrigger: {
+        const tl = gsap.timeline(
+            {scrollTrigger: {
                 trigger: "#counter-section",
                 start: "top top",
                 pin: "#counter-section",
-                scrub: 1,
-                end: "+=1000",
-              
-            },
-        });
+                scrub: 3,
+            }}
+        );
         tl.from(".main-text", {
             opacity: 0,
-            duration: 1,
+            duration: 2,
             ease: "power1.in",
         })
         tl.from(".main-text", {
@@ -64,7 +62,7 @@ export default function CounterSection(){
                 end: "+=1000",
             },
             innerText: 0,
-            duration: 3,
+            duration: 1,
             snap : {
                 innerText: 1
             }
@@ -78,6 +76,7 @@ export default function CounterSection(){
         tl.from(".counter", {
             opacity: 0,
             duration: 1,
+            x: 30,
             ease: "power1.in",
         })
         tl.to({}, { duration: 5 }); // <- add 1 second of "nothing"
@@ -85,8 +84,8 @@ export default function CounterSection(){
     }, {scope: sectionRef.current!})
 
     return(
-        <section id = "counter-section" className="bg-primary h-screen" ref = {sectionRef}>
-            <div className="section-container flex space-x-12 py-[150px]">
+        <section id = "counter-section" className="bg-primary h-screen overflow-hidden" ref = {sectionRef}>
+            <div className="section-container flex space-x-12 py-[150px] h-full">
                 <div className="flex-1 pr-12 flex flex-col justify-center space-y-4 ">
                     <div className="text-border fade-in">ACADEMIC VISIBILITY</div>
                     <h1 className="text-5xl text-white font-bold main-text"><span className="text-secondary counter-text">87</span> Total Publications and <span className="text-secondary"><span className="counter-text">1100</span>+</span> Citations</h1>
@@ -97,7 +96,7 @@ export default function CounterSection(){
                         <Button variant="accent" className="w-[150px]">Learn More</Button>
                     </div>
                 </div>
-                <div className="counter">
+                <div className="counter flex flex-col justify-center">
                     <h1 className="text-5xl text-white text-center mb-12">Total <span className="text-secondary">Counter</span></h1>
                     <div className="flex flex-col">
                         {

@@ -5,7 +5,10 @@ export default function NavBar(){
         <nav className="fixed z-50 top-0 left-0 flex w-full">
             <div className="container px-section-x py-4 mx-auto flex text-white">
                 <div className="flex-1 text-2xl font-semi-bold">
-                    <span className="text-secondary">Biraj</span> Singh.
+                    <Link href="/">
+                        <span className="text-secondary">Biraj</span> Singh.
+                    </Link>
+                    
                 </div>
                 <div className="flex">
                     <NavItem to="#" label="Home" />

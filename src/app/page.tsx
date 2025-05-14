@@ -11,14 +11,14 @@ import VisionSection from "@/sections/Home/Vision.section";
 import { useEffect, useState } from "react";
 
 export default function HomePage(){
-    const [loading, setLoading] = useState(true);
-    useEffect(()=>{
-        const timeout = setTimeout(()=> setLoading(false), 3000)
-        return(()=>{
-            clearTimeout(timeout);
-        })
-    }, [])
-    if(loading) return <SplashScreen />
+    // const [loading, setLoading] = useState(true);
+    // useEffect(()=>{
+    //     const timeout = setTimeout(()=> setLoading(false), 3000)
+    //     return(()=>{
+    //         clearTimeout(timeout);
+    //     })
+    // }, [])
+    // if(loading) return <SplashScreen />
     
     return(
         <>

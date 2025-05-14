@@ -26,7 +26,8 @@ export default function ImpactSection(){
             scrollTrigger: {
                 trigger: sectionRef.current,
                 pin: true,
-                scrub: 2
+                scrub: 2,
+                start: "10% top"
             },
             opacity: 0,
             y: 50,
@@ -44,7 +45,7 @@ export default function ImpactSection(){
                 </div>
                 <div className="flex space-x-20 items-center">
                     <div>
-                        <Image src={ImpactImage} alt = "impact Image" className="impact-image" />
+                        <Image src={ImpactImage} alt = "impact Image" className="impact-image h-[70vh] object-cover" />
                     </div>
                     <div className="flex flex-col flex-1 space-y-4 text-text-main pl-12">
                         <p className="font-bold impact-fade-in text-3xl" >Through 15+ years of pioneering work, Dr. Thapa has:</p>

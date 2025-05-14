@@ -88,7 +88,7 @@ export default function CounterSection(){
             <div className="section-container flex space-x-12 py-[150px] h-full">
                 <div className="flex-1 pr-12 flex flex-col justify-center space-y-4 ">
                     <div className="text-border fade-in">ACADEMIC VISIBILITY</div>
-                    <h1 className="text-5xl text-white font-bold main-text"><span className="text-secondary counter-text">87</span> Total Publications and <span className="text-secondary"><span className="counter-text">1100</span>+</span> Citations</h1>
+                    <h1 className="text-5xl text-white font-bold main-text max-w-[800px]"><span className="text-secondary counter-text">87</span> Total Publications and <span className="text-secondary"><span className="counter-text">1100</span>+</span> Citations</h1>
                     <p className="text-white text-lg fade-in">
                     Dr. Thapa's research has advanced hydrogen energy, hydropower innovation, and sustainable systems, with global recognition across 20+ international conferences.
                     </p>

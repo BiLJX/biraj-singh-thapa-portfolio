@@ -18,7 +18,7 @@ export default function PassionSection(){
         gsap.registerPlugin(ScrollTrigger);
         gsap.from(".passion-image", {
              scrollTrigger: {
-                trigger: sectionRef.current,
+                trigger: "",
                 start: "top 80%",
                 toggleActions: "play none none reverse"
             },
@@ -31,7 +31,8 @@ export default function PassionSection(){
             scrollTrigger: {
                 trigger: sectionRef.current,
                 pin: true,
-                scrub: 2
+                scrub: 2,
+                start: "10% top",
             },
             opacity: 0,
             y: 50,
@@ -82,7 +83,7 @@ export default function PassionSection(){
                         </div>
                     </div>
                     <div>
-                        <Image src={PassionImage} alt = "Passion Image" className="passion-image" />
+                        <Image src={PassionImage} alt = "Passion Image" className="passion-image h-[70vh] object-cover" />
                     </div>
                 </div>
             </div>

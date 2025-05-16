@@ -1,6 +1,7 @@
 "use client"
 import { cn } from "@/utils/cn.utils";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 interface TItem {
@@ -8,6 +9,7 @@ interface TItem {
     title: any;
     description: string;
     external_link?: string,
+    link?: string
 }
 
 const Items: TItem[] = [
@@ -21,7 +23,8 @@ const Items: TItem[] = [
     {
         title: <><span className="font-bold">ACHIVEMENTS</span> OF DR. SINGH THAPA</>,
         description: "View all the goals Dr. Biraj Singh Thapa has achieved.",
-        image_src: "/home/carousel/Achiv.jpg"
+        image_src: "/home/carousel/Achiv.jpg",
+        link: "/achivements"
     },
     {
         title: <><span className="font-bold">LAB</span> OF DR. SINGH THAPA</>,
@@ -51,11 +54,10 @@ export default function CarouselSection(){
                             {indexActive === i && (   <div className="mt-auto space-y-4 text-white z-10 relative">
                                     <h1 className="text-xl">{x.title}</h1>
                                     <h1 className="text-sm">{x.description}</h1>
-                                    <a className="text-xs hover:text-secondary" target="_blank" href = {x.external_link}>LEARN →</a>
+                                   {x.link?<Link className="text-xs hover:text-secondary" href = {x.link}>LEARN →</Link>:( <a className="text-xs hover:text-secondary" target="_blank" href = {x.external_link}>LEARN →</a>)}
                                 </div>)}
                             </div>
                         </div>
-                       
                     ))
                 }
             </div>

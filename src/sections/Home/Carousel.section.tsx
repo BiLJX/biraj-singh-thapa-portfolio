@@ -24,7 +24,7 @@ const Items: TItem[] = [
         title: <><span className="font-bold">ACHIVEMENTS</span> OF DR. SINGH THAPA</>,
         description: "View all the goals Dr. Biraj Singh Thapa has achieved.",
         image_src: "/home/carousel/Achiv.jpg",
-        link: "/achivements"
+        link: "/achievements"
     },
     {
         title: <><span className="font-bold">LAB</span> OF DR. SINGH THAPA</>,

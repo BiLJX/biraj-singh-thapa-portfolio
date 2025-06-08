@@ -65,10 +65,10 @@ export default function InternationalSection(){
             <div>
                 <section className="flex flex-wrap space-y-4 justify-center w-full items-center py-section-y space-x-8 additional-pictures min-h-screen section-container">
                     <div  className = "picture flex-1 space-y-8">
-                        <PreviewableImage className ="object-cover w-full h-auto" src = "/achievements/international/group.JPG" alt = "" width={400} height={300}/>
+                        <PreviewableImage loading="eager" className ="object-cover w-full h-auto" src = "/achievements/international/group.JPG" alt = "" width={400} height={300}/>
                     </div>
                     <div className = "picture flex-1">
-                        <PreviewableImage className ="object-cover w-full h-auto" src = "/achievements/international/mic.JPG" alt = "" width={400} height={300}/>
+                        <PreviewableImage loading="eager" className ="object-cover w-full h-auto" src = "/achievements/international/mic.JPG" alt = "" width={400} height={300}/>
                     </div>
                 </section>
             </div>

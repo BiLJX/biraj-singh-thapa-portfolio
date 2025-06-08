@@ -54,7 +54,7 @@ export default function CarouselSection(){
                             {indexActive === i && (   <div className="mt-auto space-y-4 text-white z-10 relative">
                                     <h1 className="text-xl">{x.title}</h1>
                                     <h1 className="text-sm">{x.description}</h1>
-                                   {x.link?<Link className="text-xs hover:text-secondary" href = {x.link}>LEARN →</Link>:( <a className="text-xs hover:text-secondary" target="_blank" href = {x.external_link}>LEARN →</a>)}
+                                   {x.link?<Link className="text-xs hover:text-secondary" href = {x.link}>VIEW →</Link>:( <a className="text-xs hover:text-secondary" target="_blank" href = {x.external_link}>VIEW →</a>)}
                                 </div>)}
                             </div>
                         </div>

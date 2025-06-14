@@ -7,6 +7,7 @@ import HomeHero from "@/sections/Home/Hero.section";
 import ImpactSection from "@/sections/Home/Impact.section";
 import PassionSection from "@/sections/Home/Passion.section";
 import PublicationSection from "@/sections/Home/Publications.section";
+import VisibilitySection from "@/sections/Home/Visibility.section";
 import VisionSection from "@/sections/Home/Vision.section";
 import { useEffect, useState } from "react";
 
@@ -30,6 +31,7 @@ export default function HomePage(){
             <VisionSection />
             <PassionSection />
             <ImpactSection />
+            <VisibilitySection />
         </>
     )
 }

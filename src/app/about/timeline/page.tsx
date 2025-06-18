@@ -61,6 +61,7 @@ export default function TimelineSection() {
     const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     useGSAP(() => {
+
         bgRefs.current.forEach((bg, i) => {
             if (!bg) return;
 
@@ -70,6 +71,7 @@ export default function TimelineSection() {
                 trigger: sectionRefs.current[i],
                 start: 'top center',
                 end: 'bottom center',
+                snap: 0.5,
                 onEnter: () => {
                 gsap.to(bg, { autoAlpha: 1, duration: 1 });
                 },

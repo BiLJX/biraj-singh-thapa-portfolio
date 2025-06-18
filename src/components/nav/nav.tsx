@@ -11,8 +11,8 @@ export default function NavBar(){
                     
                 </div>
                 <div className="flex">
-                    <NavItem to="#" label="Home" />
-                    <NavItem to="#" label="About" />
+                    <NavItem to="/" label="Home" />
+                    <NavItem to="/about" label="About" />
                     <NavItem to="#" label="Media" />
                     <NavItem to="#" label="Projects" />
                     <NavItem to="#" label="Contact" />

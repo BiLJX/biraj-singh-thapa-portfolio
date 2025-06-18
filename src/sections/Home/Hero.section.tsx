@@ -1,4 +1,5 @@
 import Button from "@/components/buttons/buttons";
+import Link from "next/link";
 
 export default function HomeHero(){
     return(
@@ -20,7 +21,9 @@ export default function HomeHero(){
                         <a target="_blank" href="/home/Resume.pdf">
                             <Button className="h-full" variant="accent">Resume</Button>
                         </a>
-                        <Button variant="white-outlined">Learn More</Button>
+                        <Link href = "/about">
+                            <Button variant="white-outlined">Learn More</Button>
+                        </Link>
                     </div>
                 </div>
             </div>

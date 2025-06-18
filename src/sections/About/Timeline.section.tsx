@@ -1,13 +1,16 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-
+import { MdClose } from "react-icons/md";
+import { useRouter } from 'next/navigation';
+import Button from '@/components/buttons/buttons';
 gsap.registerPlugin(ScrollTrigger);
 
 interface TimelineItem {
+    id: string;
     year: string;
     title: string;
     content: string;
@@ -16,137 +19,54 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
     {
+        id: 'item1',
         year: '1996',
         title: 'Early Education',
-        content:
-            'Dr. Biraj Singh Thapa completed his Intermediate of Science at Kathmandu University (1996-1998), building a strong foundation in physics, mathematics, and engineering principles.',
-        bg: '/home/Hero.jpg',
+        content: 'Dr. Biraj Singh Thapa completed his Intermediate of Science at Kathmandu University (1996–1998), building a strong foundation in physics, mathematics, and engineering principles.',
+        bg: '/about/edu/ku1.jpg',
     },
     {
-        year: '1999',
-        title: 'Undergraduate Studies',
-        content: 'He pursued his Bachelor\'s degree in Mechanical Engineering...',
-        bg: '/home/Hero.png',
+        id: 'item2',
+        year: '1998',
+        title: 'Bachelor’s degree',
+        content: "Bachelor of Engineering (B.E.) in Mechanical Engineering at Kathmandu University. He developed an interest in energy systems and mechanics.",
+        bg: '/about/edu/ku2.jpg',
     },
     {
-        year: '1929',
-        title: 'Unasdasasddergraduate Studies',
-        content: 'He pursueasdasdasd his Bachelor\'s degree in Mechanical Engineering...',
-        bg: '/home/Hero2.png',
+        id: 'item3',
+        year: '2003',
+        title: 'Master’s degree',
+        content: 'M.Sc. in renewable energy engineering (2003–2005) at Tribhuvan University. He focused on sustainable energy solutions for Nepal.',
+        bg: '/about/edu/tu.webp',
     },
     {
-        year: '1929',
-        title: 'Unasdasasddergraduate Studies',
-        content: 'He pursueasdasdasd his Bachelor\'s degree in Mechanical Engineering...',
-        bg: '/home/Hero2.png',
+        id: 'item4',
+        year: '2010',
+        title: 'MS by research',
+        content: 'Dr. Birah Singh Thapa pursued an MS by Research in Hydraulic Machinery from 2010 to 2012, specializing in sediment erosion in turbines.',
+        bg: '/about/edu/ku3.jpeg',
+    },
+    {
+        id: 'item5',
+        year: '2013',
+        title: 'PhD journey',
+        content: 'Dr. Birah Singh Thapa pursued advanced studies in fluid engineering abroad, earning a PhD from NTNU, Norway, from 2013 to 2016, with focused research on sediment erosion in Francis turbines, becoming an expert in hydropower turbine efficiency.',
+        bg: '/about/edu/ntnu.jpg',
     },
 ];
 
 export default function TimelineSection() {
-    const sectionsRef = useRef<HTMLDivElement[]>([]);
-    const bgRef = useRef<HTMLDivElement>(null);
-    const bgRefs = useRef<HTMLDivElement[]>([]);
-    let activeBg = 0;
-    const mainSectionRef = useRef<HTMLDivElement>(null);
-
-    // useGSAP(() => {
-    //     timelineData.forEach((item, index) => {
-    //         ScrollTrigger.create({
-    //             trigger: sectionsRef.current[index],
-    //             start: 'top center',
-    //             end: 'bottom center',
-    //             onEnter: () => {
-    //                 gsap.to(bgRef.current, {
-    //                     backgroundImage: `url('${item.bg}')`,
-    //                     duration: 0.5,
-    //                     ease: 'power2.out',
-    //                 });
-    //             },
-    //             onEnterBack: () => {
-    //                 gsap.to(bgRef.current, {
-    //                     backgroundImage: `url('${item.bg}')`,
-    //                     duration: 0.5,
-    //                     ease: 'power2.out',
-    //                 });
-    //             },
-    //         });
-    //     });
-    // }, []);
-
-    useGSAP(() => {
-        const numberOfSections = sectionsRef.current.length
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: mainSectionRef.current,
-                start: "top top",
-                pin: true,
-                scrub: 2,
-                
-            }
-        })
-        tl.to(".content", {
-            y: `${-100*numberOfSections}vh`,
-            duration: numberOfSections,
-            stagger: 1
-        })
-        tl.to(bgRef.current, {
-            backgroundImage: `url('/home/Hero.jpg')`
-        })
-        sectionsRef.current.forEach((el, i)=>{
-            ScrollTrigger.create({
-                trigger: el,
-                start: "top center",
-
-                // markers: true,
-                onEnter: () => {
-                    const item = timelineData[i];
-                    gsap.to(bgRef.current, {
-                        backgroundImage: `url('${item.bg}')`,
-                        duration: 0.5,
-                        ease: 'power2.out',
-                    });
-                },
-                onEnterBack: ()=>{
-                    const item = timelineData[i];
-                    gsap.to(bgRef.current, {
-                        backgroundImage: `url('${item.bg}')`,
-                        duration: 0.5,
-                        ease: 'power2.out',
-                    });
-                }
-            },)
-        })
-       
-
-    }, [])
+    const router = useRouter()
 
     return (
-        <div className="relative w-full h-[400vh]" ref={mainSectionRef}>
-            {/* Backgrounds */}
-
-            <div
-                ref={bgRef}
-                className="bg absolute inset-0  bg-cover bg-center"
-                style={{ backgroundImage: `url('${timelineData[0].bg}')` }}
-            />
-            {/* Timeline Content */}
-
-            <div className="w-2 bg-white h-full relative mx-10">
-                {timelineData.map((item, index) => (
-                    <div
-                        key={index}
-                        ref={(el) => { el && (sectionsRef.current[index] = el) }}
-                        className="content timeline-section top-0 w-screen h-screen flex items-center justify-between px-20"
-                    >
-                        {/* <div className="dot w-4 h-4 bg-white rounded-full absolute left-[-1rem] top-1/2 transform -translate-y-1/2" /> */}
-                        <div className="max-w-xl">
-                            <h1 className="text-4xl font-bold">{item.year}</h1>
-                            <h2 className="text-xl mt-2">{item.title}</h2>
-                            <p className="mt-4">{item.content}</p>
-                        </div>
-                    </div>
-                ))}
+        <div className="relative w-full text-white  h-screen bg-cover flex justify-center items-center" style={{ backgroundImage: `url('/about/edu/ntnu.jpg')` }}>
+            <div className='overlay bg-black/50' />
+            <div className='flex flex-col  space-y-6 z-10'>
+                <h1 className='text-5xl'>Dr. Biraj Singh Thapa’s Education</h1>
+                <p className='text-lg text-center'>View Dr. Biraj Singh Thapa’s All Education in a Timeline</p>
+                <Button variant='white-outlined' onClick={()=>router.push("/about/timeline")}>View</Button>
             </div>
         </div>
     );
 }
+

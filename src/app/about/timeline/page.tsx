@@ -8,7 +8,6 @@ import { MdClose } from "react-icons/md";
 import { useRouter } from 'next/navigation';
 import { cn } from '@/utils/cn.utils';
 import Button from '@/components/buttons/buttons';
-gsap.registerPlugin(ScrollTrigger);
 
 interface TimelineItem {
     id: string;
@@ -64,6 +63,11 @@ export default function TimelineSection() {
     const yearRef = useRef<HTMLDivElement | null>(null);
     const progressRef = useRef<HTMLDivElement | null>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+    }, []);
+
     useGSAP(() => {
         gsap.fromTo(
             yearRef.current,

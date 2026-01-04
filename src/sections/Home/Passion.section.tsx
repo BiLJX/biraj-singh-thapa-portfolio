@@ -43,14 +43,14 @@ export default function PassionSection(){
     }, {scope: sectionRef})
     return(
         <section className="bg-white" id = "passion-section" ref = {sectionRef}>
-            <div className="section-container flex flex-col space-y-[5rem] ">
-                <div className="flex flex-col items-center space-y-2">
+            <div className="section-container flex flex-col space-y-12 md:space-y-20 ">
+                <div className="flex flex-col items-center space-y-2 text-center">
                     <p className="text-xs text-text-light">PASSION</p>
-                    <h1 className="text-4xl font-semibold">Driving Nepal's <span className="text-accent">Hydrogen</span> Revolution</h1>
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">Driving Nepal's <span className="text-accent">Hydrogen</span> Revolution</h1>
                 </div>
-                <div className="flex space-x-20 items-center">
-                    <div className="flex flex-col flex-1 space-y-4">
-                        <p className="italic text-lg passion-fade-in">Dr. Biraj Singh Thapa is transforming Nepal's hydropower surplus into a clean hydrogen economy – powering industries, homes, and the nation's energy independence.</p>
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-20 items-center">
+                    <div className="flex flex-col flex-1 space-y-4 order-2 lg:order-1">
+                        <p className="italic text-base md:text-lg passion-fade-in">Dr. Biraj Singh Thapa is transforming Nepal's hydropower surplus into a clean hydrogen economy – powering industries, homes, and the nation's energy independence.</p>
                         <div className="flex flex-col">
                             <PassionItem
                             title="Green Hydrogen Promotion"
@@ -82,8 +82,8 @@ export default function PassionSection(){
                             <Button variant="accent">Explore His Research →</Button>
                         </div>
                     </div>
-                    <div>
-                        <Image src={PassionImage} alt = "Passion Image" className="passion-image h-[70vh] object-cover" />
+                    <div className="w-full lg:w-auto lg:flex-shrink-0 order-1 lg:order-2">
+                        <Image src={PassionImage} alt = "Passion Image" className="passion-image w-full lg:w-auto h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] object-cover rounded-lg" />
                     </div>
                 </div>
             </div>

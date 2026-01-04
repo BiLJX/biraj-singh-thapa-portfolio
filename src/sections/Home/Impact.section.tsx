@@ -38,18 +38,18 @@ export default function ImpactSection(){
     }, {scope: sectionRef})
     return(
         <section id = "impact-section" ref = {sectionRef}>
-            <div className="section-container flex flex-col space-y-[5rem] ">
-                <div className="flex flex-col items-center space-y-2">
+            <div className="section-container flex flex-col space-y-12 md:space-y-20 ">
+                <div className="flex flex-col items-center space-y-2 text-center">
                     <p className="text-xs text-text-light">IMPACT</p>
-                    <h1 className="text-4xl font-semibold text-primary">Shaping Nepal's Energy <span className="text-accent">Energy</span> Legacy</h1>
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-primary">Shaping Nepal's Energy <span className="text-accent">Energy</span> Legacy</h1>
                 </div>
-                <div className="flex space-x-20 items-center">
-                    <div>
-                        <Image src={ImpactImage} alt = "impact Image" className="impact-image h-[70vh] object-cover" />
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-20 items-center">
+                    <div className="w-full lg:w-auto lg:flex-shrink-0">
+                        <Image src={ImpactImage} alt = "impact Image" className="impact-image w-full lg:w-auto h-[50vh] md:h-[60vh] lg:h-[70vh] object-cover rounded-lg" />
                     </div>
-                    <div className="flex flex-col flex-1 space-y-4 text-text-main pl-12">
-                        <p className="font-bold impact-fade-in text-3xl" >Through 15+ years of pioneering work, Dr. Thapa has:</p>
-                        <ul className="list-disc space-y-2 text-lg">
+                    <div className="flex flex-col flex-1 space-y-4 text-text-main">
+                        <p className="font-bold impact-fade-in text-xl sm:text-2xl md:text-3xl" >Through 15+ years of pioneering work, Dr. Thapa has:</p>
+                        <ul className="list-disc space-y-2 text-sm sm:text-base md:text-lg pl-5">
                             <li className="impact-fade-in"><b>Transformed policy |</b> Secured Nepal's first hydrogen R&D budget (2024)</li>
                             <li className="impact-fade-in"><b>Built foundations |</b> Established KU's Green Hydrogen Lab - now a national hub</li>
                             <li className="impact-fade-in"><b>Solved real problems |</b>  90+ publications improving Himalayan hydropower</li>

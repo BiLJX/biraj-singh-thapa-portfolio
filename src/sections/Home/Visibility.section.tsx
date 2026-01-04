@@ -33,12 +33,12 @@ export default function VisibilitySection(){
     ]
     return(
         <section className="bg-white">
-            <div className="section-container flex flex-col space-y-[5rem] ">
-                <div className="flex flex-col items-center space-y-2">
+            <div className="section-container flex flex-col space-y-12 md:space-y-20 ">
+                <div className="flex flex-col items-center space-y-2 text-center">
                     <p className="text-xs text-text-light">VISIBILITY</p>
-                    <h1 className="text-4xl font-semibold">Featured <span className="text-accent">News</span> and Articles</h1>
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">Featured <span className="text-accent">News</span> and Articles</h1>
                 </div>
-                <div className="grid grid-cols-2 gap-16">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
                     {data.map((x, i)=><Card href={x.href} img_src={x.img_src} key = {i} title={x.title}  description={x.description} sub_title={x.sub_title}/>)}
                 </div>
             </div>
@@ -55,14 +55,14 @@ interface Props{
 }
 function Card({description, sub_title, title, img_src, href}: Props){
     return(
-        <div className="flex flex-col rounded-3xl border-[1px] border-border overflow-hidden">
-            <div className="h-[300px]">
+        <div className="flex flex-col rounded-2xl md:rounded-3xl border-[1px] border-border overflow-hidden">
+            <div className="h-[200px] sm:h-[250px] md:h-[300px]">
                 <img src = {img_src} className="w-full h-full object-cover" />
             </div>
-            <div className="px-6 py-12 space-y-2">
-                <h4 className="text-text-main text-2xl font-medium">{title}</h4>
-                <p className="italic text-text-light text-sm">{sub_title}</p>
-                <p className="text-text-main">{description}</p>
+            <div className="px-4 sm:px-5 md:px-6 py-6 sm:py-8 md:py-12 space-y-2">
+                <h4 className="text-text-main text-lg sm:text-xl md:text-2xl font-medium">{title}</h4>
+                <p className="italic text-text-light text-xs sm:text-sm">{sub_title}</p>
+                <p className="text-text-main text-sm md:text-base">{description}</p>
                 <a href = {href} target="_blank">
                     <Button variant="accent-outlined" className="mt-2">Read More</Button>
                 </a>

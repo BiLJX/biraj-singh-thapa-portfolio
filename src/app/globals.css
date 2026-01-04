@@ -18,10 +18,30 @@
   --color-border: #E0E0E0;
   --color-secondary: #F2C94C;
   --color-subtle-accent: #CCD8FF;
-  --spacing-section-x: 2rem;
-  --spacing-section-y: 7.5rem;
+  --spacing-section-x: 1rem;
+  --spacing-section-y: 3rem;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+@media (min-width: 640px) {
+  @theme inline {
+    --spacing-section-x: 1.5rem;
+    --spacing-section-y: 4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  @theme inline {
+    --spacing-section-x: 2rem;
+    --spacing-section-y: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  @theme inline {
+    --spacing-section-y: 7.5rem;
+  }
 }
 
 @layer components {
@@ -41,8 +61,13 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
   /* font-family: "Roboto Mono", monospace; */
 
+}
+
+html {
+  overflow-x: hidden;
 }
 
 .overlay {

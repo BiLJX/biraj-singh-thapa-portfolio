@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto, Roboto_Mono } from "next/font/google";
 import "./globals.css";
+import "../polyfills/localStorage";
 import NavBar from "@/components/nav/nav";
 
 

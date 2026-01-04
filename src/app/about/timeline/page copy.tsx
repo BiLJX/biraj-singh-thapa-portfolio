@@ -6,7 +6,6 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { MdClose } from "react-icons/md";
 import { useRouter } from 'next/navigation';
-gsap.registerPlugin(ScrollTrigger);
 
 interface TimelineItem {
     id: string;
@@ -61,6 +60,7 @@ export default function TimelineSection() {
     const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     useGSAP(() => {
+        gsap.registerPlugin(ScrollTrigger);
 
         bgRefs.current.forEach((bg, i) => {
             if (!bg) return;

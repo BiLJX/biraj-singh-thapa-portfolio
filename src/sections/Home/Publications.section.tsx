@@ -6,8 +6,6 @@ import { forwardRef, useRef, useState } from "react";
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Contents: TContents[] = [
     {
         title: "Green Hydrogen Potentials from Surplus Hydro Energy in Nepal",
@@ -38,6 +36,7 @@ const Contents: TContents[] = [
 export default function PublicationSection(){
     const cardsRef = useRef<HTMLDivElement[]>([])
     useGSAP(()=>{
+        gsap.registerPlugin(ScrollTrigger);
         gsap.from(cardsRef.current, {
             opacity: 0,
             y: 50,
@@ -53,9 +52,9 @@ export default function PublicationSection(){
     })
     return(
         <section className="bg-black">
-            <div className = "section-container space-y-12">
-                <h1 className="text-center font-bold text-2xl text-white">Publications That You Make Like</h1>
-                <div className="flex space-x-6">
+            <div className = "section-container space-y-8 md:space-y-12">
+                <h1 className="text-center font-bold text-xl sm:text-2xl text-white px-4">Publications That You May Like</h1>
+                <div className="flex gap-4 md:gap-6 overflow-x-auto pb-4 px-4 md:px-0 snap-x snap-mandatory">
                     {
                         Contents.map((x, i)=><Card title={x.title} description={x.description} image_src={x.image_src} href={x.href} ref={el => {if(el) cardsRef.current[i] = el }} key = {i} />)
                     }
@@ -73,18 +72,18 @@ interface TContents {
 const Card = forwardRef<HTMLDivElement, TContents>(({description, href, image_src, title}: TContents, ref) =>{
     const [isActive, setIsActive ] = useState(false);
     return(
-        <div className = "flex-1 flex flex-col" ref={ref}>
-            <div className="w-full h-[470px] relative flex flex-col p-4 cursor-pointer" onMouseEnter={()=>setIsActive(true)} onMouseLeave={()=>setIsActive(false)}>
+        <div className = "flex-1 min-w-[280px] sm:min-w-[320px] md:min-w-0 flex flex-col snap-start" ref={ref}>
+            <div className="w-full h-[400px] sm:h-[450px] md:h-[470px] relative flex flex-col p-4 cursor-pointer" onMouseEnter={()=>setIsActive(true)} onMouseLeave={()=>setIsActive(false)} onClick={()=>setIsActive(!isActive)}>
                 <img src = {image_src} className="w-full h-full object-cover overlay"  />
                 <div className={cn("overlay bg-[#0000007e] transition-all duration-500", {"bg-[#0000005b]": isActive})} />
-                <div className="mt-auto relative z-10 space-y-4">
-                    <h1 className="text-white font-bold text-lg">{title}</h1>
-                    <div className="space-y-4">
-                        <p className={cn("max-h-0 transition-all duration-500 text-white opacity-0 text-sm", {"max-h-40 opacity-100": isActive})}>
+                <div className="mt-auto relative z-10 space-y-3 md:space-y-4">
+                    <h1 className="text-white font-bold text-base md:text-lg">{title}</h1>
+                    <div className="space-y-3 md:space-y-4">
+                        <p className={cn("max-h-0 transition-all duration-500 text-white opacity-0 text-xs sm:text-sm", {"max-h-40 opacity-100": isActive})}>
                             {description}
                         </p>
                         <a target="_blank" href={href}>
-                            <Button variant="white-outlined">See Publication</Button>
+                            <Button className="text-sm md:text-base" variant="white-outlined">See Publication</Button>
                         </a>
                     </div>
                 </div>

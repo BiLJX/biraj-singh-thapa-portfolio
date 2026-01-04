@@ -24,23 +24,23 @@ export default function VisionSection(){
         })
     })
     return(
-        <section id="vision-section">
-            <div className="section-container flex items-center">
-                <div className="flex w-[730px] flex-wrap space-x-4 justify-center space-y-4">
-                    <VisionCard ref = {el=>{if(el) cardsRef.current[0] = el}} title="Energy Independence" description="Producing green hydrogen from Nepal's Hydropower resources." Icon="🔋" />
-                    <VisionCard ref = {el=>{if(el) cardsRef.current[1] = el}} title="Empowering Through Innovation" description="Investing in young scientists, building local capabilities, and fostering interdisciplinary research." Icon="💡" />
-                    <VisionCard ref = {el=>{if(el) cardsRef.current[2] = el}} title="Green Hydrogen for Every Sector" description="Integrating green hydrogen across various sectors, revolutionizing daily life and industrial processes" Icon="🌱" />
+        <section id="vision-section" className="overflow-hidden">
+            <div className="section-container flex flex-col lg:flex-row items-center gap-8 lg:gap-0">
+                <div className="flex w-full lg:w-[730px] flex-wrap gap-4 justify-center">
+                    <VisionCard ref = {el=>{if(el) cardsRef.current[0] = el}} title="Energy Independence" description="Producing green hydrogen from Nepal's Hydropower resources." Icon="" />
+                    <VisionCard ref = {el=>{if(el) cardsRef.current[1] = el}} title="Empowering Through Innovation" description="Investing in young scientists, building local capabilities, and fostering interdisciplinary research." Icon="" />
+                    <VisionCard ref = {el=>{if(el) cardsRef.current[2] = el}} title="Green Hydrogen for Every Sector" description="Integrating green hydrogen across various sectors, revolutionizing daily life and industrial processes" Icon="" />
                 </div>
-                <div className="flex-1">
-                    <div className="space-y-5 pl-20 flex flex-col">
-                        <h1 className="text-primary text-5xl font-bold">
+                <div className="flex-1 w-full">
+                    <div className="space-y-4 md:space-y-5 lg:pl-12 xl:pl-20 flex flex-col">
+                        <h1 className="text-primary text-3xl sm:text-4xl md:text-5xl font-bold">
                         Vision for a Hydrogen Powered Nepal
                         </h1>
-                        <p className="text-text-main text-lg">
-                            The vision is to redefine Nepal's energy future—through green hydrogen, sustainable practices, and global collaboration.
+                        <p className="text-text-main text-base md:text-lg">
+                            The vision is to redefine Nepal's energy futurethrough green hydrogen, sustainable practices, and global collaboration.
                         </p>
-                        <p className="text-text-light italic">
-                            “A Vision Rooted in Innovation, Powered by Purpose”
+                        <p className="text-text-light italic text-sm md:text-base">
+                            "A Vision Rooted in Innovation, Powered by Purpose"
                         </p>
                         <Button variant="accent-outlined" className="w-fit">View In Detail</Button>
                     </div>
@@ -57,10 +57,12 @@ interface Props {
 }
 const VisionCard = forwardRef<HTMLDivElement, Props>(({title, Icon, description}: Props, ref)=>{
     return(
-        <div className="flex p-4 flex-col gap-y-4 bg-white w-[300px] min-h-[290px]  rounded-xl" ref = {ref}>
+        <div className="flex p-4 flex-col gap-y-4 bg-white w-full sm:w-[calc(50%-0.5rem)] md:w-[300px] min-h-[250px] md:min-h-[290px] rounded-xl" ref = {ref}>
             <div className="text-center text-7xl">{Icon}</div>
             <div className="text-text-main text-lg font-semibold">{title}</div>
             <div className="text-text-light">{description}</div>
         </div>
     )
 })
+
+VisionCard.displayName = "VisionCard";

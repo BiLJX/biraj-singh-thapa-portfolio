@@ -7,7 +7,6 @@ import { useGSAP } from '@gsap/react';
 import { MdClose } from "react-icons/md";
 import { useRouter } from 'next/navigation';
 import Button from '@/components/buttons/buttons';
-gsap.registerPlugin(ScrollTrigger);
 
 interface TimelineItem {
     id: string;
@@ -57,7 +56,9 @@ const timelineData: TimelineItem[] = [
 
 export default function TimelineSection() {
     const router = useRouter()
-
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+    }, []);
     return (
         <div className="relative w-full text-white  h-screen bg-cover flex justify-center items-center" style={{ backgroundImage: `url('/about/edu/ntnu.jpg')` }}>
             <div className='overlay bg-black/50' />
